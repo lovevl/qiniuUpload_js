@@ -62,7 +62,7 @@ FileProgress.prototype.setStatus = function(status, isUploading) {
     }
 };
 FileProgress.prototype.setComplete = function (file,key) {
-    var imgView = '?imageView2/0/w/200/h/200';
+    var imgView = '?imageView2/2/w/200';
     var $td1 = this.$fileItem.find('td:eq(0)');
     var $td3 = this.$fileItem.find('td:eq(2)');
     var imgDiv = '<div class="img-box"><img src="'+key+imgView+'" alt="" /></div>';

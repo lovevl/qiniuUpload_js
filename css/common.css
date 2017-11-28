@@ -11,8 +11,8 @@ div.progress{
     height: 100px;
 }
 .img-box img{
-    height: 100px;
-    max-width: 140px;
+    max-height: 120px;
+    max-width: 100px;
 }
 .up-speed{
     position: absolute;
