@@ -8,7 +8,7 @@ div.progress{
 }
 .img-box{
     margin-top: 5px;
-    height: 100px;
+    max-height: 120px;
 }
 .img-box img{
     max-height: 120px;
