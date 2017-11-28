@@ -1,0 +1,41 @@
+.upload-box{
+    margin: 10px auto;
+    /*text-align: center;*/
+}
+div.progress{
+    position: relative;
+    margin-bottom:0;
+}
+.img-box{
+    margin-top: 5px;
+    height: 100px;
+}
+.img-box img{
+    height: 100px;
+    max-width: 140px;
+}
+.up-speed{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    line-height: 20px;
+}
+#tableBox{
+    display: none;
+}
+.detail{
+    position: relative;
+}
+.span-text{
+    margin-right: 3px;
+}
+span.alert-copy{
+    position: absolute;
+    top:22px;
+    left:50%;
+    transform: translateX(-50%);
+    padding: 3px 5px;
+    font-size: 12px;
+    opacity: 1;
+}
