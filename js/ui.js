@@ -14,7 +14,6 @@ function FileProgress(file) {
         if(filename.length>8){
             filename = '...'+filename.slice(-8);
         }
-        console.log(filename);
         var $td1 = $('<td>'+filename+'</td>');
         var $td2 = $('<td class="hidden-xs">'+fileSize+'</td>');
         var $td3 = $('<td/>');
