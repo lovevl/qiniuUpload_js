@@ -10,7 +10,11 @@ function FileProgress(file) {
         this.$fileItem = $('<tr></tr>');
         var $fileItem = this.$fileItem;
         $fileItem.attr('id',this.fileItemID);
-        var $td1 = $('<td>'+file.name+'</td>');
+        var filename = file.name;
+        if(filename.length>8){
+            filename = '...'+filename.slice(-8);
+        }
+        var $td1 = $('<td>'+filename+'</td>');
         var $td2 = $('<td class="hidden-xs">'+fileSize+'</td>');
         var $td3 = $('<td/>');
         var $divPro = $('<div/>');
