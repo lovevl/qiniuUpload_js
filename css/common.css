@@ -39,3 +39,9 @@ span.alert-copy{
     font-size: 12px;
     opacity: 1;
 }
+@media (max-width: 992px) {
+    .up-speed {
+        left: 8px;
+        transform:translateX(0);
+    }
+}
