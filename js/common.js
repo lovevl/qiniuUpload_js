@@ -2,6 +2,7 @@
  * Created by xmmrh on 2017/11/28.
  */
 $(function () {
+    $('.min-height').css('min-height',client().height-30 + "px");
     ranParam = {
         a : ['1','F','3','d','V','m','R','J','y','0'],
         b : ['a','b','c','4','e','f','g','h','i','j'],
@@ -116,8 +117,6 @@ $(function () {
         }
 
     });
-
-    $('.min-height').css('min-height',client().height-30 + "px");
 
 });
 
