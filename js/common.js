@@ -14,7 +14,7 @@ $(function () {
     userParam = {
         $table : $("#tableBox"),
         $tbody : $('#upfileTbody')
-    }
+    };
 
 
     var uploader = Qiniu.uploader({
@@ -26,7 +26,7 @@ $(function () {
 //        uptoken : 'vd5AoY8OV4q7GYaKg6g1b5z1pwImCQmcR7GH_EtF:FU2SjEOzoFC9bhYti2DCDr8n89A=:eyJzY29wZSI6InhtbXJoLXBpYyIsImRlYWRsaW5lIjoxNTExOD'
 //            +'Q1NDAxfQ==',
         // uptoken是上传凭证，由其他程序生成
-        uptoken_url: 'http://117.48.204.110/xmmrh/qiniu/uptoken.jspx',         // Ajax请求uptoken的Url，强烈建议设置（服务端提供）
+        uptoken_url: 'http://immrh.cn/xmmrh/qiniu/uptoken.jspx',         // Ajax请求uptoken的Url，强烈建议设置（服务端提供）
         // uptoken_func: function(){    // 在需要获取uptoken时，该方法会被调用
         //    // do something
         //    return uptoken;
@@ -36,7 +36,7 @@ $(function () {
         // Ajax请求downToken的Url，私有空间时使用，JS-SDK将向该地址POST文件的key和domain，服务端返回的JSON必须包含url字段，url值为该文件的下载地址
         unique_names: false,              // 默认false，key为文件名。若开启该选项，JS-SDK会为每个文件自动生成key（文件名）
         // save_key: true,                  // 默认false。若在服务端生成uptoken的上传策略中指定了sava_key，则开启，SDK在前端将不对key进行任何处理
-        domain: 'http://img.91xue.me/',     // bucket域名，下载资源时用到，必需
+        domain: 'http://uimg.top/',     // bucket域名，下载资源时用到，必需
         container: 'upload_id',             // 上传区域DOM ID，默认是browser_button的父元素
         max_file_size: '10mb',             // 最大文件体积限制
         flash_swf_url: 'js/sdk/plupload/Moxie.swf',  //引入flash，相对路径
@@ -117,20 +117,23 @@ $(function () {
 
     });
 
-    function randomJPGname(r=ranParam) {
-        var numM = Math.random();
-        var num = numM.toString();
-        var aa = parseInt(num.charAt(3));
-        var bb = parseInt(num.charAt(5));
-        var cc = parseInt(num.charAt(7));
-        var dd = parseInt(num.charAt(9));
-        var ee = parseInt(num.charAt(11));
-        var ff = parseInt(num.charAt(13));
-        var path = r.a[aa].concat(r.b[bb],r.c[cc],r.d[dd],r.e[ee],r.f[ff]);
-        return path;
-    };
+    $('.min-height').css('min-height',client().height-30 + "px");
 
 });
+
+
+function randomJPGname(r=ranParam) {
+    var numM = Math.random();
+    var num = numM.toString();
+    var aa = parseInt(num.charAt(3));
+    var bb = parseInt(num.charAt(5));
+    var cc = parseInt(num.charAt(7));
+    var dd = parseInt(num.charAt(9));
+    var ee = parseInt(num.charAt(11));
+    var ff = parseInt(num.charAt(13));
+    var path = r.a[aa].concat(r.b[bb],r.c[cc],r.d[dd],r.e[ee],r.f[ff]);
+    return path;
+};
 
 var copyUrl = function (obj) {
     var $obj = $(obj);

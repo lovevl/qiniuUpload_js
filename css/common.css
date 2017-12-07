@@ -4,9 +4,6 @@ body{
     color: #34495e;
 }
 
-.min-height{
-    min-height: 655px;
-}
 .upload-box{
     margin: 10px auto;
     /*text-align: center;*/
