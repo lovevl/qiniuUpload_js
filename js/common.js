@@ -35,7 +35,7 @@ $(function () {
         get_new_uptoken: false,             // 设置上传文件的时候是否每次都重新获取新的uptoken
         // downtoken_url: '/downtoken',
         // Ajax请求downToken的Url，私有空间时使用，JS-SDK将向该地址POST文件的key和domain，服务端返回的JSON必须包含url字段，url值为该文件的下载地址
-        unique_names: false,              // 默认false，key为文件名。若开启该选项，JS-SDK会为每个文件自动生成key（文件名）
+        //unique_names: false,              // 默认false，key为文件名。若开启该选项，JS-SDK会为每个文件自动生成key（文件名）
         // save_key: true,                  // 默认false。若在服务端生成uptoken的上传策略中指定了sava_key，则开启，SDK在前端将不对key进行任何处理
         domain: 'http://uimg.top/',     // bucket域名，下载资源时用到，必需
         container: 'upload_id',             // 上传区域DOM ID，默认是browser_button的父元素
@@ -117,7 +117,6 @@ $(function () {
         }
 
     });
-
 });
 
 
@@ -130,8 +129,12 @@ function randomJPGname(r=ranParam) {
     var dd = parseInt(num.charAt(9));
     var ee = parseInt(num.charAt(11));
     var ff = parseInt(num.charAt(13));
-    var path = r.a[aa].concat(r.b[bb],r.c[cc],r.d[dd],r.e[ee],r.f[ff]);
-    return path;
+    var gg = parseInt(num.charAt(15));
+    var arr = [r.a[aa],r.b[bb],r.c[cc],r.d[dd],r.e[ee],r.f[ff],r.g[gg]];
+    arr.sort(function () {
+        return (0.5-Math.random());
+    });
+    return arr.slice(0,5).join("");
 };
 
 var copyUrl = function (obj) {
