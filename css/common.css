@@ -28,7 +28,7 @@ div.progress{
     line-height: 20px;
 }
 #tableBox{
-    display: table;
+    display: none;
 }
 .detail{
     position: relative;
