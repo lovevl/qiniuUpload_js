@@ -59,4 +59,7 @@ span.alert-copy{
     .float-r{
         float: right;
     }
+    span.alert-copy{
+        top:30px;
+    }
 }

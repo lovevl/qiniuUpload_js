@@ -68,8 +68,8 @@ FileProgress.prototype.setComplete = function (file,key) {
     var imgDiv = '<div class="img-box"><img src="'+key+imgView+'" alt="" /></div>';
     $td1.html($td1.text()+imgDiv);
     var $detailDiv = $('<div class="detail"/>');
-    var spanStr = `<span class="span-text"><strong>访问路径：</strong><a href="`+key+`-m" target="_blank">`
-        +key+`-m</a></span><button class="btn btn-success btn-xs" onclick="copyUrl(this)">复制</button>`;
+    var spanStr = `<span class="span-text"><strong class="wrap-block">访问路径：</strong><a href="`+key+`-m" target="_blank">`
+        +key+`-m</a></span><button class="btn btn-success btn-xs float-r" onclick="copyUrl(this)">复制</button>`;
     $detailDiv.html(spanStr);
     $td3.empty().append($detailDiv);
 };
