@@ -56,4 +56,7 @@ span.alert-copy{
     .wrap-block{
         display: block;
     }
+    .float-r{
+        float: right;
+    }
 }
