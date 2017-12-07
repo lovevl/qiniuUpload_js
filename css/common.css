@@ -53,4 +53,7 @@ span.alert-copy{
         left: 8px;
         transform:translateX(0);
     }
+    .wrap-block{
+        display: block;
+    }
 }
