@@ -14,7 +14,7 @@ function FileProgress(file) {
         if(filename.length>8){
             filename = '...'+filename.slice(-8);
         }
-        var $td1 = $('<td>'+filename+'</td>');
+        var $td1 = $('<td><span>'+filename+'</span></td>');
         var $td2 = $('<td class="hidden-xs">'+fileSize+'</td>');
         var $td3 = $('<td/>');
         var $divPro = $('<div/>');
@@ -61,15 +61,31 @@ FileProgress.prototype.setStatus = function(status, isUploading) {
         this.$fileItem.find('.up-speed').text(status);
     }
 };
-FileProgress.prototype.setComplete = function (file,key) {
+FileProgress.prototype.setComplete = function (file,key,res) {
     var imgView = '?imageView2/2/w/200';
     var $td1 = this.$fileItem.find('td:eq(0)');
     var $td3 = this.$fileItem.find('td:eq(2)');
-    var imgDiv = '<div class="img-box"><img src="'+key+imgView+'" alt="" /></div>';
-    $td1.html($td1.text()+imgDiv);
+    var $img = $('<div class="img"><img src="'+key+imgView+'" alt="" /></div>');
+    var $imgDiv = $('<div class="img-box"></div>');
+    $td1.append($imgDiv.append($img));
     var $detailDiv = $('<div class="detail"/>');
-    var spanStr = `<span class="span-text"><strong class="wrap-block">访问路径：</strong><a href="`+key+`-m" target="_blank">`
-        +key+`-m</a></span><button class="btn btn-success btn-xs float-r" onclick="copyUrl(this)">复制</button>`;
+    var spanStr = `<span class="span-text"><strong class="wrap-block">访问路径：</strong><a href="`+key+`" target="_blank">`
+        +key+`</a></span><button class="btn btn-success btn-xs float-r" onclick="copyUrl(this)">复制</button>`;
     $detailDiv.html(spanStr);
     $td3.empty().append($detailDiv);
+    $('.instruction').removeClass("hidden");
+    $img.find('img').on('load',function(){
+        var imageInfo = Qiniu.imageInfo(res.key);
+        var $p = $('<div><p>宽:'+imageInfo.width+'</p><p>高:'+imageInfo.height+'</p></div>');
+        $img.append($p);
+    });
+};
+FileProgress.prototype.setError = function(err,errTip,up){
+    var $td3 = this.$fileItem.find('td:eq(2)');
+    var text = errTip;
+    if(err.status == 614){
+        text = "自定义图片名称已被使用，请更改";
+    }
+    var $div = $('<div class="text-msg">'+text+'</div>');
+    $td3.empty().append($div);
 };

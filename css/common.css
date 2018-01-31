@@ -8,6 +8,31 @@ body{
     margin: 10px auto;
     /*text-align: center;*/
 }
+.box{
+    margin-bottom:10px;
+}
+.box>span{
+    display: inline-block;
+    position: relative;
+}
+.slash{
+    position: absolute;
+    top:4px;
+    left: 4px;
+    font-size: 18px;
+}
+input{
+    outline: none;
+    border: 0;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 5px 5px 5px 10px;
+}
+input:focus{
+    border-color: #3ec1ce;
+}
+
+
 div.progress{
     position: relative;
     margin-bottom:0;
@@ -27,8 +52,20 @@ div.progress{
     font-size: 12px;
     line-height: 20px;
 }
-#tableBox{
-    display: none;
+.img{
+    display: inline-block;
+    position: relative;
+}
+.img>div{
+    position: absolute;
+    right: -50px;
+    bottom:0;
+}
+.img p{
+    margin-bottom: 0;
+}
+.text-msg{
+    color: #a94442;
 }
 .detail{
     position: relative;

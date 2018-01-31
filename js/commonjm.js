@@ -3,7 +3,11 @@
  */
 $(function () {
     $('.min-height').css('min-height',client().height-30 + "px");
-    ranParam = {
+    param = {
+        $path : $('#path_id'),
+        $name : $('#name_id'),
+        path : null,
+        name : null,
         a : ['1','F','3','d','V','m','R','J','y','0'],
         b : ['a','b','c','4','e','f','g','h','i','j'],
         c : ['k','l','6','n','o','p','q','r','s','t'],
@@ -13,7 +17,6 @@ $(function () {
         g : ['2','n','I','Y','6','Z','B','P','Y','Z']
     };
     userParam = {
-        $name : $('#name_id'),
         $table : $("#tableBox"),
         $tbody : $('#upfileTbody')
     };
@@ -42,7 +45,7 @@ $(function () {
         container: 'upload_id',             // 上传区域DOM ID，默认是browser_button的父元素
         max_file_size: '10mb',             // 最大文件体积限制
         flash_swf_url: 'js/sdk/plupload/Moxie.swf',  //引入flash，相对路径
-        max_retries: 1,                     // 上传失败最大重试次数
+        max_retries: 3,                     // 上传失败最大重试次数
         dragdrop: true,                     // 开启可拖曳上传
         drop_element: 'upload_id',          // 拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
         chunk_size: '5mb',                  // 分块上传时，每块的体积
@@ -62,7 +65,7 @@ $(function () {
         //},
         init: {
             'FilesAdded': function(up, files) {
-                userParam.$table.removeClass("hidden");
+                userParam.$table.show();
                 plupload.each(files, function(file) {
                     // 文件添加进队列后，处理相关的事情
                     var progress = new FileProgress(file,
@@ -101,8 +104,9 @@ $(function () {
             },
             'Error': function(up, err, errTip) {
                 //上传出错时，处理相关的事情
-                var progress = new FileProgress(err.file);
-                progress.setError(err,errTip,up);
+                console.log(errTip);
+                console.log(up);
+                console.log(err);
             },
             'UploadComplete': function() {
                 //队列文件处理完毕后，处理相关的事情
@@ -112,27 +116,34 @@ $(function () {
                 // 该配置必须要在unique_names: false，save_key: false时才生效
                 var afterfix = file.name.substring(file.name.lastIndexOf("."));
                 var key = getJPGname() + afterfix;
+                // console.log(key);
                 // do something with key here
                 return key;
             }
         }
 
     });
+
 });
+
 
 function getJPGname() {
     var key;
-    userParam.name = userParam.$name.val()==''?null:userParam.$name.val();
-    if(userParam.name != null){
-        key = userParam.name ;
-    }else{
-        key = randomJPGname();
+    param.path = param.$path.val()==''?null:param.$path.val();
+    param.name = param.$name.val()==''?null:param.$name.val();
+    if(param.path != null && param.name != null){
+        key = param.path + '/' +param.name + '/' +randomJPGname();
+    }else if(param.path != null && param.name == null){
+        key = param.path + '/' +randomJPGname();
+    }else if(param.path == null && param.name != null){
+        key = param.name + '/' +randomJPGname();
+    }else if(param.path == null && param.name == null){
+        key = randomJPGname(5);
     }
     return key;
 };
 
-
-function randomJPGname(r=ranParam) {
+function randomJPGname(initNum=3,r=param) {
     var numM = Math.random();
     var num = numM.toString();
     var aa = parseInt(num.charAt(3));
@@ -146,8 +157,10 @@ function randomJPGname(r=ranParam) {
     arr.sort(function () {
         return (0.5-Math.random());
     });
-    return arr.slice(0,5).join("");
+    return arr.slice(0,initNum).join("");
 };
+
+
 
 var copyUrl = function (obj) {
     var $obj = $(obj);

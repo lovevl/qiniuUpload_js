@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>图片上传,微信评论留图</title>
+    <title>境美网站图片上传专用</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/common.css">
@@ -19,14 +19,17 @@
                     <span>上传图片</span>
                 </a>
             </div>
+            <div class="box set-path">
+                设置图片前缀路径: <span><span class="slash">/</span><input id="path_id" class="path" type="text"></span>
+            </div>
             <div class="box set-name">
-                自定义图片名称: <span><span class="slash">/</span><input id="name_id" class="name"/>
+                设置图片名称，后3位采取系统随机数: <span><span class="slash">/</span><input id="name_id" class="name"/>
             </div>
         </div>
     </div>
     <div class="row ">
         <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
-            <table class="table table-hover hidden" id="tableBox">
+            <table class="table table-hover" id="tableBox">
                 <thead>
                 <tr>
                     <th class="col-md-3 col-sm-3 col-xs-3">文件名</th>
@@ -35,21 +38,13 @@
                 </tr>
                 </thead>
                 <tbody id="upfileTbody">
+
                 </tbody>
             </table>
-            <div class="instruction hidden">
-                <p><strong>说明:</strong> 路径最后可添加后缀以节省流量:<br>
-                    <mark>-v</mark>
-                    压缩至最大宽度2048px，高度自适应<br>
-                    <mark>-m</mark>
-                    压缩至最大宽度1024px，高度自适应<br>
-                    <mark>-n</mark>
-                    压缩至最大宽度640px，高度自适应<br>
-                    例： <a href="http://imge.top/test.jpg" target="_blank">http://imge.top/test.jpg</a>&nbsp;原图6000*4000，4.47M<br>
-                    <a href="http://imge.top/test.jpg-v" target="_blank">http://imge.top/test.jpg-v</a>&nbsp;现2048*1365，278KB<br>
-                    <a href="http://imge.top/test.jpg-m" target="_blank">http://imge.top/test.jpg-m</a>&nbsp;现1024*683，76KB<br>
-                    <a href="http://imge.top/test.jpg-n" target="_blank">http://imge.top/test.jpg-n</a>&nbsp;现640*427，36KB
-                </p>
+            <div class="instruction">
+                <p>-140110,设置420*330的像素值，用于新闻列表图片</p>
+                <p>-bg,缩小宽至1500的像素值</p>
+                <p>-bg3000,缩小宽至3000的像素值，用于背景图</p>
             </div>
         </div>
     </div>
@@ -70,7 +65,7 @@
 <!--<script type="text/javascript" src="http://cdn.staticfile.org/qiniu-js-sdk/1.0.14-beta/qiniu.min.map" ></script>-->
 <script type="text/javascript" src="js/sdk/qiniu.min.js"></script>
 <script type="text/javascript" src="js/base.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/commonjm.js"></script>
 <script type="text/javascript" src="js/ui.js"></script>
 
 </body>
