@@ -31,7 +31,7 @@ $(function () {
 //        uptoken : 'vd5AoY8OV4q7GYaKg6g1b5z1pwImCQmcR7GH_EtF:FU2SjEOzoFC9bhYti2DCDr8n89A=:eyJzY29wZSI6InhtbXJoLXBpYyIsImRlYWRsaW5lIjoxNTExOD'
 //            +'Q1NDAxfQ==',
         // uptoken是上传凭证，由其他程序生成
-        uptoken_url: 'http://zzjingmeigzn.com/qiniu/uptoken.jspx',         // Ajax请求uptoken的Url，强烈建议设置（服务端提供）
+        uptoken_url: 'http://www.zzjingmeigzn.com/qiniu/uptoken.jspx',         // Ajax请求uptoken的Url，强烈建议设置（服务端提供）
         // uptoken_func: function(){    // 在需要获取uptoken时，该方法会被调用
         //    // do something
         //    return uptoken;
