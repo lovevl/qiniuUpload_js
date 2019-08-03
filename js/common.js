@@ -28,7 +28,7 @@ $(function () {
 //        uptoken : 'vd5AoY8OV4q7GYaKg6g1b5z1pwImCQmcR7GH_EtF:FU2SjEOzoFC9bhYti2DCDr8n89A=:eyJzY29wZSI6InhtbXJoLXBpYyIsImRlYWRsaW5lIjoxNTExOD'
 //            +'Q1NDAxfQ==',
         // uptoken是上传凭证，由其他程序生成
-        uptoken_url: 'http://104.199.248.200/jm/qiniu/uptoken.jspx',         // Ajax请求uptoken的Url，强烈建议设置（服务端提供）
+        uptoken_url: 'http://www.zzjingmeigzn.com/qiniu/uptoken.jspx',         // Ajax请求uptoken的Url，强烈建议设置（服务端提供）
         // uptoken_func: function(){    // 在需要获取uptoken时，该方法会被调用
         //    // do something
         //    return uptoken;
@@ -40,7 +40,7 @@ $(function () {
         // save_key: true,                  // 默认false。若在服务端生成uptoken的上传策略中指定了sava_key，则开启，SDK在前端将不对key进行任何处理
         domain: 'http://imge.top/',     // bucket域名，下载资源时用到，必需
         container: 'upload_id',             // 上传区域DOM ID，默认是browser_button的父元素
-        max_file_size: '10mb',             // 最大文件体积限制
+        max_file_size: '100mb',             // 最大文件体积限制
         flash_swf_url: 'js/sdk/plupload/Moxie.swf',  //引入flash，相对路径
         max_retries: 1,                     // 上传失败最大重试次数
         dragdrop: true,                     // 开启可拖曳上传
