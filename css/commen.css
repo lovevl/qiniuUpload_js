@@ -3,8 +3,11 @@ body{
     -moz-osx-font-smoothing: grayscale;
     color: #34495e;
 }
-
+.btn-boxs{
+    margin: 10px auto;
+}
 .upload-box{
+    display: inline-block;
     margin: 10px auto;
     /*text-align: center;*/
 }
@@ -31,8 +34,12 @@ input{
 input:focus{
     border-color: #3ec1ce;
 }
-
-
+.pic_url{
+    width:60%;
+}
+.del-box{
+    margin-top: 30px;
+}
 div.progress{
     position: relative;
     margin-bottom:0;

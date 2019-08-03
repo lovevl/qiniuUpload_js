@@ -20,4 +20,4 @@ function client() {
         width: document.body.clientWidth,
         height: document.body.clientHeight
     }
-}
+};
